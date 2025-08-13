@@ -139,16 +139,6 @@
       </div>
     </footer>
 
-    <!-- JS mínimo: menú móvil -->
-    <script>
-      const btn = document.getElementById("menuToggle");
-      const drawer = document.getElementById("drawer");
-      btn?.addEventListener("click", () => drawer.classList.toggle("open"));
-      drawer
-        ?.querySelectorAll("a")
-        .forEach((a) =>
-          a.addEventListener("click", () => drawer.classList.remove("open"))
-        );
-    </script>
+
   </body>
 </html>
