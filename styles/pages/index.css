@@ -1,0 +1,257 @@
+/* ==========================================================
+   Base de estilos — Aniversario (Tema: Tulipán)
+   Limpio, romántico, responsivo
+   ========================================================== */
+
+/* ============== 1) Tokens y reset ============== */
+:root{
+  /* Colores */
+  --rose-25:#fff7fa; --rose-50:#fff1f4; --rose-100:#ffe4ea; --rose-200:#ffcbd7;
+  --rose-300:#ff9fb8; --rose-400:#f4799e; --rose-500:#e2557f; --rose-600:#cc3f6b; --rose-700:#a23157;
+  --stem-300:#9fd3b8; --stem-400:#6fb28e; --stem-600:#3f8e6a;
+  --cream:#f7f3ef; --paper:#ffffff;
+  --slate-900:#0f172a; --slate-800:#1f2937; --slate-700:#334155; --slate-600:#475569; --slate-500:#64748b;
+  --gold:#c7a36b;
+
+  /* Tipografía y layout */
+  --ff-sans: 'Nunito', system-ui, sans-serif;
+  --ff-serif: 'Playfair Display', serif;
+  --container: 1080px;
+
+  /* Radios y sombras */
+  --radius: 16px; --radius-lg: 22px;
+  --shadow-sm: 0 4px 14px rgba(31,41,55,.08);
+  --shadow:    0 8px 28px rgba(31,41,55,.12);
+  --shadow-lg: 0 14px 40px rgba(31,41,55,.16);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-size: 17px;
+  font-family:var(--ff-sans);
+  color:var(--slate-800);
+  background: linear-gradient(180deg, var(--rose-50) 0%, #fff 40%, var(--cream) 100%);
+}
+img{max-width:100%;height:auto;display:block}
+svg{display:inline-block}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--container);margin-inline:auto;padding:0 16px}
+
+/* Accesibilidad: foco visible */
+:where(a,button,[role="button"]):focus-visible{
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(226,85,127,.25);
+  border-radius: 999px;
+}
+
+/* ============== 2) Navbar / Header ============== */
+.nav{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(160%) blur(10px);
+  background: rgba(255,255,255,.85);
+  border-bottom:1px solid var(--rose-100);
+}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.brand svg{width:22px;height:22px;color:var(--rose-600)}
+
+.menu{display:flex;gap:22px}
+.menu a{
+  position: relative;
+  font-size: .95rem;
+  color: var(--slate-800);    /* nítido */
+  font-weight: 600;
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color .3s ease;
+}
+.menu a:hover{ color: var(--rose-600); }
+.menu a::after{
+  content:"";
+  position:absolute; left:0; bottom:-3px;
+  width:0%; height:2px;
+  background-color:var(--rose-500);
+  transition:width .3s ease;
+  border-radius:2px;
+}
+.menu a:hover::after{ width:100%; }
+
+.menu-toggle{display:none}
+
+@media (max-width:720px){
+  .menu{display:none}
+  .menu-toggle{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 12px;border:1px solid var(--rose-200);
+    border-radius:999px;background:var(--paper);box-shadow:var(--shadow-sm)
+  }
+  .drawer{
+    display:none; position:absolute; inset-inline:16px; top:54px;
+    background:var(--paper); border:1px solid var(--rose-100);
+    border-radius:12px; box-shadow:var(--shadow); padding:10px
+  }
+  .drawer a{display:block;padding:12px;border-radius:10px;transition:background .2s ease}
+  .drawer a:hover{background:var(--rose-50)}
+  .drawer.open{display:block}
+}
+
+/* ============== 3) Hero / Portada ============== */
+.hero{padding:72px 0 36px; text-align:center}
+.kicker{ color: var(--gold); font-weight: 600; }
+h1{
+  font-family:var(--ff-serif);
+  font-size:clamp(36px,6vw,64px);
+  line-height:1.1; margin:10px 0; color:var(--slate-800)
+}
+.lead{font-size:1.1rem;color:var(--slate-600);max-width:720px;margin:12px auto 0}
+.cta-row{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.btn{
+  padding:12px 18px;border-radius:999px;border:1px solid var(--rose-200);
+  background:var(--paper); color:var(--rose-600);
+  box-shadow:0 2px 0 rgba(0,0,0,.03);
+  font-weight:600;
+  transition:transform .08s ease, box-shadow .2s ease, background .2s ease
+}
+.btn:hover{background:var(--rose-50);box-shadow:var(--shadow-sm)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{
+  background:var(--rose-500); color:#fff; border-color:transparent
+}
+.btn.primary:hover{
+  background:var(--rose-600);
+  box-shadow:0 6px 18px rgba(204,63,107,.25)
+}
+
+.hero-card{
+  margin-top:28px; border-radius:var(--radius-lg);
+  overflow:hidden; box-shadow:var(--shadow-lg); border:1px solid var(--rose-100);
+  background:var(--paper)
+}
+.hero-card img{ object-fit:cover}
+
+/* ============== 4) Secciones, grids y cards ============== */
+section{ padding: 32px 0; }
+
+/* Títulos y subtítulos con mejor respiración */
+.section-title{
+  font-family: var(--ff-serif);
+  font-size: clamp(26px,3.5vw,34px);
+  margin-top: 48px;     /* aire por arriba */
+  margin-bottom: 6px;   /* compacto abajo */
+  color: var(--rose-600);
+  font-weight: 700;
+}
+/* Evita doble margen si el título es el primer hijo de la sección */
+section > .section-title:first-child{ margin-top: 0; }
+
+.section-sub{
+  color: #5b3b45; /* marrón suave */
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* Destacados */
+.highlights{padding:28px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:920px){.grid{grid-template-columns:1fr}}
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--rose-100);
+  border-radius:16px;
+  padding:16px;
+  box-shadow:var(--shadow-sm)
+}
+.card h3{margin:0 0 6px;font-size:1.02rem;color:var(--rose-600)}
+.muted{color:var(--slate-600);font-size:.98rem}
+
+/* Historia (teaser / página) */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:920px){.timeline{grid-template-columns:1fr}}
+.tile{
+  background:var(--paper);
+  border:1px solid var(--rose-100);
+  border-radius:14px;
+  padding:14px;
+  box-shadow:var(--shadow-sm)
+}
+.tile .date{font-size:.86rem;color:var(--rose-600)}
+.tile .title{font-weight:600;margin:6px 0}
+
+/* Galería */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;      /* aire entre tarjetas */
+}
+@media (max-width:920px){
+  .gallery{ grid-template-columns: repeat(2, 1fr); }
+}
+.thumb{
+  background:var(--paper);
+  border:1px solid var(--rose-100);
+  border-radius:12px; overflow:hidden; position:relative; box-shadow:var(--shadow-sm)
+}
+.thumb img{
+  width:100%; height:100%;
+  aspect-ratio:1 / 1;
+  object-fit: cover;         /* llena sin deformar */
+  object-position: center;   /* centra el recorte */
+  transform: scale(1.001);
+  transition: transform .25s ease;
+}
+.thumb:hover img{ transform: scale(1.02); }
+
+/* Variante sin recorte (por si la necesitas en alguna imagen puntual) */
+.thumb--contain img{
+  object-fit: contain;
+  background: #fff;
+}
+
+/* ============== 5) Cita y Footer ============== */
+.quote{
+  background:linear-gradient(135deg, var(--rose-50), #fff);
+  border-top:1px solid var(--rose-100);
+  border-bottom:1px solid var(--rose-100);
+  margin-top: 48px;
+  padding: 56px 0;
+}
+blockquote{
+  font-family:var(--ff-serif);
+  font-size:clamp(20px,2.5vw,22px);
+  text-align:center;margin:0;color:#7a4d5d
+}
+footer{
+  margin-top: 40px;
+  padding:28px 0;
+  color:var(--slate-600);
+  text-align:center
+}
+
+/* Z-index seguro para evitar solapes */
+.quote, footer { position: relative; z-index: 0; }
+.thumb, .btn { position: relative; z-index: 1; }
+
+/* Un poco más de aire al final de la última sección de contenido */
+section:last-of-type { padding-bottom: 72px; }
+
+/* ============== 6) Utilidades opcionales ============== */
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 10px;border-radius:999px;font-size:.85rem;
+  background:var(--rose-50); color:var(--rose-700); border:1px solid var(--rose-100)
+}
+.chip{
+  display:inline-block;padding:6px 10px;border-radius:999px;
+  background:#fff;border:1px solid var(--rose-100);color:var(--slate-700)
+}
+
+/* Respeto a usuarios sin animaciones */
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto}
+  .btn, .thumb img{transition:none}
+}

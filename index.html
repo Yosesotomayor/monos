@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A &amp; Y — 2º Aniversario</title>
+    <meta
+      name="description"
+      content="Dos años, miles de momentos y un amor que sigue creciendo. Este es nuestro rincón para celebrar lo que somos."
+    />
+
+    <meta property="og:title" content="A &amp; Y — 2º Aniversario" />
+    <meta
+      property="og:description"
+      content="Dos años, miles de momentos y un amor que sigue creciendo."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="meta/opengraph.jpg" />
+    <meta name="theme-color" content="#f7e9ed" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/pages/index.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="nav" role="banner">
+      <div class="container nav-wrap">
+        <a href="#inicio" class="brand" aria-label="Inicio A & Y">
+          <!-- Corazón simple SVG -->
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path
+              d="M12 21s-6.716-4.243-9.428-7.497C.267 11.76.63 8.39 3.06 6.75c2.2-1.47 4.74-.69 6.04.88C10.4 6.06 12.94 5.28 15.14 6.75c2.43 1.64 2.79 5.01.49 6.753C18.716 16.757 12 21 12 21z"
+            />
+          </svg>
+          <span>A &amp; Y — 2025</span>
+        </a>
+        <nav aria-label="Principal" class="menu" id="menu">
+          <a href="#inicio">Inicio</a>
+          <a href="#galeria">Galería</a>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          ☰ Menú
+        </button>
+      </div>
+      <div class="container">
+        
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="inicio" class="hero container">
+      <p class="kicker">Segundo aniversario</p>
+      <h1>Contigo, cada día se siente como el primero.</h1>
+      <p class="lead">
+        Desde el 29 de Julio de 2023. Gracias por caminar conmigo.
+      </p>
+      <div class="cta-row" role="group" aria-label="Acciones principales">
+        <a class="btn" href="#galeria">Ver galería</a>
+      </div>
+      <figure class="hero-card" aria-label="Foto principal">
+        <picture>
+          <source srcset="assets/img/6.JPG" type="image/webp" />
+          <img
+            src="assets/img/portada/hero.jpg"
+            alt="Nosotros en nuestra foto favorita"
+            style="object-position: 10% 40%; object-fit: cover"
+          />
+        </picture>
+      </figure>
+    </main>
+
+    <!-- TEASER GALERÍA -->
+    <section id="galeria" class="container" aria-labelledby="tg">
+      <h2 id="tg" class="section-title">Galería</h2>
+      <p style="color : white" class="section-sub">Algunas de mis favoritas.</p>
+      <div class="gallery" aria-live="polite">
+        <!-- Reemplaza las rutas con tus miniaturas reales -->
+        <figure class="thumb">
+          <img
+            loading="lazy"
+            src="assets/img/1.jpg"
+            alt="Recuerdo 1"
+          />
+        </figure>
+        <figure class="thumb">
+          <img
+            loading="lazy"
+            src="assets/img/2.jpeg"
+            alt="Recuerdo 2"
+          />
+        </figure>
+        <figure class="thumb">
+          <img
+            loading="lazy"
+            src="assets/img/3.jpeg"
+            alt="Recuerdo 3"
+          />
+        </figure>
+        <figure class="thumb">
+          <img
+            loading="lazy"
+            src="assets/img/4.jpeg"
+            alt="Recuerdo 4"
+          />
+        </figure>
+        <figure class="thumb">
+          <img
+            loading="lazy"
+            src="assets/img/5.jpg"
+            alt="Recuerdo 5"
+          />
+        </figure>
+        <figure class="thumb">
+          <img
+            loading="lazy"
+            src="assets/img/7.jpg"
+            alt="Recuerdo 6"
+          />
+        </figure>
+      </div>
+
+    </section>
+
+    <!-- TEASER CARTA -->
+    <section id="carta" class="container" aria-labelledby="tc">
+      <h2 id="tc" class="section-title">Para ti mona</h2>
+      <p class="section-sub">
+        Gracias por tu risa, tu paciencia y tu forma de ver el mundo. Este año
+        entendí que contigo todo tiene más sentido, y quiero pasar contigo mi vida entera.
+      </p>
+
+
+    <footer>
+      <div class="container">
+        A &amp; Y — 2º aniversario · 2025 · Hecho con amor por tu mono.
+      </div>
+    </footer>
+
+    <!-- JS mínimo: menú móvil -->
+    <script>
+      const btn = document.getElementById("menuToggle");
+      const drawer = document.getElementById("drawer");
+      btn?.addEventListener("click", () => drawer.classList.toggle("open"));
+      drawer
+        ?.querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () => drawer.classList.remove("open"))
+        );
+    </script>
+  </body>
+</html>
